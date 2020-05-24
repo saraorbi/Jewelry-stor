@@ -139,13 +139,21 @@
 <body>
 	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" style="color: white;font-family:italic;" href="{{url('/')}}">JEWELRY STOR</a>
-		<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+
+		<!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
+
+		<input class="form-control form-control-w-100" type="text" placeholder="Search.." id="dtBasicExample" cellspacing="0">
+
 		<ul class="navbar-nav px-3">
 			<li class="nav-item text-nowrap">
 				<a class="nav-link" href="{{url('user/logout')}}">Sign out</a>
-			<!-- <li class="nav-item text-nowrap">
+
+			</li>
+		</ul>
+		<ul class="navbar-nav px-3">
+			<li class="nav-item text-nowrap">
 				<a class="nav-link" href="{{url('/')}}">Back</a>
-			</li> -->
+
 			</li>
 		</ul>
 	</nav>
@@ -156,7 +164,7 @@
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
 						<li class="nav-item">
-							<a class="nav-link active" href="#">
+							<a class="nav-link active" href="{{url('cms/dashbord')}}">
 								<span data-feather="home"></span>
 								Dashboard <span class="sr-only">(current)</span>
 							</a>
@@ -198,13 +206,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="{{asset('/mainjs/myjs.js')}}"></script>
 	<script src="{{asset('mainjs/dashbord.js')}}"></script>
 	<!-- <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
 	<script src="{{asset('js/popper.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script> -->
+	<script>
+		$(document).ready(function() {
+			$('#dtBasicExample').DataTable();
+			$('.dataTables_length').addClass('bs-select');
+		});
+	</script>
+
 </body>
+
 </html>
-
-
-
-

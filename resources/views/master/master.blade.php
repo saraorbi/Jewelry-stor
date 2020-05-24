@@ -60,45 +60,37 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
+							<li style="left:70%;">
 								<a href="{{url('/')}}">Home</a>
 							</li>
 							@if(!Session::get('user_id'))
-							<li>
+							<li style="left:70%;">
 								<a href="{{url('user/login')}}">Login</a>
 							</li>
-							<li>
+							<li style="left:70%;">
 								<a href="{{url('user/signup')}}">SignUp</a>
 							</li>
 							@else
-							<li>
+							<li style="left:70%;">
 								<a href="{{url('user/logout')}}">Log Out</a>
 							</li>
 							@endif
 							@if(Session::get('is_admin')==true)
-							<li>
+							<li style="left:70%;">
 								<a href="{{url('cms/dashbord')}}">CMS</a>
 							</li>
 
 							@endif
-
-							<li>
-								<a href="blog.html">Blog</a>
-							</li>
 						</ul>
 					</div>
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-
-						<!-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="{{Cart::getTotalQuantity()}}">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div> -->
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="{{Cart::getTotalQuantity()}}">
 							<button class="" onclick="window.location='{{url('shop/ViewCart')}}'">
-                                <i class="zmdi zmdi-shopping-cart"></i>
+								<i class="zmdi zmdi-shopping-cart"></i>
 							</button>
-							
+
 						</div>
 					</div>
 				</nav>
@@ -106,63 +98,10 @@
 		</div>
 		<!-- Icon header -->
 		<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-			<!-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
-				</div> -->
 
-			<!-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{Cart::getTotalQuantity()}}">
-				<i class="zmdi zmdi-shopping-cart"></i>
-			</div> -->
 		</div>
 	</header>
 
-	<!-- Cart -->
-	<!-- <div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
-
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-					
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-						
-							</a>
-
-							<span class="header-cart-item-info">
-							
-							</span>
-						</div>
-					</li>
-
-				</ul>
-
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<button class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10" onclick="window.location='{{url('shop/ViewCart')}}'">Check Out</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
 	@if(Session::get('sm'))
 	<div class="container">
 		<div class="alert alert-success text-center sm" role="alert">
@@ -177,7 +116,7 @@
 	<footer class="container">
 		<div class="row">
 			<div class="fixed-bottom py-4 bg-light">
-				<p class="m-0 text-center" style="font-family:italic;">&copy; By Sara Orbi</p>
+				<p class="m-0 text-center" style="font-family:italic;">&copy; Sara Orbi | saradavidov97@gmail.com | 050-3748111</p>
 			</div>
 		</div>
 	</footer>
@@ -233,27 +172,6 @@
 		$('.js-addwish-b2').on('click', function(e) {
 			e.preventDefault();
 		});
-
-		// $('.js-addwish-b2').each(function() {
-		// 	var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-		// 	$(this).on('click', function() {
-		// 		swal(nameProduct, "is added to wishlist !", "success");
-
-		// 		$(this).addClass('js-addedwish-b2');
-		// 		$(this).off('click');
-		// 	});
-		// });
-
-		// $('.js-addwish-detail').each(function() {
-		// 	var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
-
-		// 	$(this).on('click', function() {
-		// 		swal(nameProduct, "is added to wishlist !", "success");
-
-		// 		$(this).addClass('js-addedwish-detail');
-		// 		$(this).off('click');
-		// 	});
-		// });
 
 		/*---------------------------------------------*/
 

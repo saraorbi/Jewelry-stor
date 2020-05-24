@@ -54,12 +54,9 @@ class CmsCategories extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
     public function show($id)
     {
-        debuger;
-        echo __METHOD__;
-        die;
         if (self::$data['category'] =  Categorie::find($id)->toArray()) {
             self::$data['title'] .= "Delete Form";
             self::$data['deleteType'] = "category";
@@ -88,7 +85,7 @@ class CmsCategories extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AddCategory $request, $id)
+    public function update(Request $request, $id)
     {
         if (Categorie::UpdateCategory($request, $id)) {
             Session::flash('sm', "category updated");

@@ -29,5 +29,6 @@ Route::group(['middleware' => ['CmsDashbord']], function () {
     Route::prefix('cms')->group(function () {
         Route::get('dashbord', "PagesController@ShowDashbord");
         Route::resource('categories', 'CmsCategories');
+        Route::resource('products', 'CmsProducts');
     });
 });

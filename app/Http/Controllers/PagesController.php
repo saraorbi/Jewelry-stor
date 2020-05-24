@@ -27,8 +27,13 @@ class PagesController extends Controller
     public function ShowCat($cat_name)
     {
         $cat = Categorie::where('cat_name', "$cat_name")->first()->toArray();
-        self::$data['products'] = Product::where('cat_id', "{$cat['id']}")->get()->toArray();
-       self::$data['title'] .=" | $cat_name";
+        $products = Product::where('cat_id', "{$cat['id']}")->paginate(3);
+        self::$data['objProducts'] = $products;
+        self::$data['products'] = $products->toArray();
+        // echo "<pre>";
+        // print_r(self::$data['products']);
+
+        self::$data['title'] .= " | $cat_name";
         return view('category', self::$data);
     }
 
@@ -38,7 +43,7 @@ class PagesController extends Controller
         $cat = Categorie::where('id', "{$product['cat_id']}")->first()->toArray();
         self::$data['category'] = $cat;
         self::$data['product'] = $product;
-        self::$data['title'] .=" | $product[name]";
+        self::$data['title'] .= " | $product[name]";
         return view('product', self::$data);
     }
 

@@ -47,3 +47,5 @@ $('.update_cart').click(function () {
         }
     });
 });
+
+$('.sm').delay('2000').slideUp();

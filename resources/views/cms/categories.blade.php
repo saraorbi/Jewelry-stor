@@ -3,7 +3,8 @@
 @section('content')
 
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><br>
+	<!-- <input class="form-control" type="text" placeholder="search category" id="search-text" onkeyup="tableSearch()"> -->
 	<form class="bg0 p-t-75 p-b-85">
 		<div class="container">
 			<br>
@@ -27,7 +28,7 @@
 									<?php $counter = 1; ?>
 									@foreach($categories as $data)
 									<tr class="table_row">
-										<th scope="row">{{$counter++}}</th>
+										<td scope="row">{{$counter++}}</td>
 										<td class="column-2">{{$data['cat_name']}}</td>
 										<td>
 											<div class="media">
@@ -37,7 +38,7 @@
 											</div>
 										</td>
 										<td>
-											<button id="{{$data['id']}}" class="btn btn-sm btn-outline-secondary"><i class="far fa-edit"></i>
+											<button class="btn btn-sm btn-outline-secondary" onclick="window.location='{{url('cms/categories/'.$data['id'].'/edit')}}'"><i class="far fa-edit"></i>
 											</button>
 										</td>
 										<td>
@@ -51,24 +52,33 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
-					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-						<h4 class="mtext-109 cl2 p-b-30">
-							Cart Totals
-						</h4> -->
-
-				<!-- <div class="flex-w flex-t bor12 p-b-13">
-							<div class="size-208">
-								<span class="stext-110 cl2">
-									Subtotal:
-								</span>
-							</div>
-						</div> -->
-				<!-- </div> -->
-
 			</div>
 		</div>
 	</form>
 </main>
 @endsection
+
+<script>
+	function tableSearch() {
+		var phrase = document.getElementById('search-text');
+		var table = document.getElementById('info-table');
+		var regPhrase = new RegExp(phrase.value, 'i');
+		var flag = false;
+		for (var i = 1; i < table.rows.length; i++) {
+			flag = false;
+			for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
+				flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
+				if (flag) break;
+			}
+			if (flag) {
+				table.rows[i].style.display = "";
+			} else {
+				table.rows[i].style.display = "none";
+			}
+
+		}
+	}
+</script>
+</body>
+
+</html>

@@ -14,24 +14,17 @@
 		<br><br>
 
 		<div class="row md-20 p-2">
-			@foreach($products as $data)
+			@foreach($products['data'] as $data)
 			<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 				<!-- Block2 -->
 
 				<div class="block2">
 					<div class="block2-pic hov-img0" style=" border: 1px solid grey;
                             border-radius: 12px;">
-						<img src="{{asset('img').'/'.$data['image']}}" style="width:269px; height:334px;" alt="IMG-PRODUCT">
+						<img src="{{asset('img').'/'.$data['image']}}" style="width:250px; height:334px;" alt="IMG-PRODUCT">
 
 						<input type="button" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" value="Quick View" onclick="window.location='{{url('product').'/'.$data['id']}}'">
 					</div>
-					
-					<!-- <div>
-						<input type="button" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 add_to_cart " value="Add To Cart">
-					</div> -->
-
-					<!-- <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 add_to_cart">Add to cart</button> -->
-
 
 					<div class="block2-txt flex-w flex-t p-t-14">
 						<div class="block2-txt-child1 flex-col-l ">
@@ -39,20 +32,18 @@
 							<span class="stext-105 cl3">
 								{{$data['price']}}₪
 							</span>
-						</div>
-					</div>
-					<!-- <div>
-						<input type="button" id="{{$data['id']}}" class="btn btn-sm btn-outline-secondary js-addcart-detail add_to_cart" value="Add To Cart">
-					</div> -->
-					<button id="{{$data['id']}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-addcart-detail add_to_cart">
+							<button id="{{$data['id']}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-addcart-detail add_to_cart">
 								Add to cart
 							</button>
-
+						</div>
+					</div>
 				</div>
-			</div>@endforeach
-			<!-- <input type="button" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" value="Back" onclick="window.location='{{url('/')}}'"> -->
+			</div>
+			@endforeach
 		</div>
+
 		<br><br><br>
+		{{$objProducts->links()}}
 	</div>
 </section>
 

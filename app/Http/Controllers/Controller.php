@@ -15,6 +15,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        self::$data['title'] = 'Jewlery | Home';
+        self::$data['title'] = 'Jewlery |';
     }
 }

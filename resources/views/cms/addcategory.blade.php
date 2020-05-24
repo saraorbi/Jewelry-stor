@@ -21,9 +21,11 @@
                     <div class="form-group">
                         <input type="submit" class="btnSubmit btn btn-primary btn" name="submit" value="Save">
                     </div>
-                    <p class="mt-5 mb-3 text-muted">&copy; Jewerly-Stor</p>
+
 
                 </form>
+                <input type="submit" class="btnSubmit btn btn-primary btn" name="submit" value="Cancle" onclick="window.location='{{url('cms/categories')}}'">
+                <p class="mt-5 mb-3 text-muted">&copy; Jewerly-Stor</p>
             </div>
         </div>
     </div>
